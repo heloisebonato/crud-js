@@ -1,3 +1,5 @@
+import { clientService } from "../service/client-service.js";
+
 const newRow = ( name, email) => {
     const newClient = document.createElement('tr')
     const content = `
@@ -17,28 +19,8 @@ const newRow = ( name, email) => {
 
 const table = document.querySelector('[data-table]')
 
-const ListCLients = () => {
-    const promise = new Promise((resolve, reject) => {
-        const http = new XMLHttpRequest()
-
-        http.open('GET', 'http://localhost:3000/profile')
-
-        http.onload = () => {
-           if(http.status >= 400){
-            reject(JSON.parse(http.response))
-           }else{
-            resolve(JSON.parse(http.response))
-           }
-        }
-        http.send()
-    })
-    return promise
-}
-
-ListCLients()
+clientService.listClients()
 .then( data => {
-    const data = JSON.parse(http.response)
     data.forEach(element => {
     table.appendChild(newRow(element.name, element.email))
-
 })})

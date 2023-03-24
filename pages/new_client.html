@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doguito Petshop | Atualizar cliente</title>
+    <title>Doguito Petshop | Add new client </title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/base/base.css">
     <link rel="stylesheet" href="../assets/css/componentes/cabecalho.css">
     <link rel="stylesheet" href="../assets/css/componentes/cartao.css">
@@ -19,32 +19,33 @@
         <nav>
             <ul class="cabecalho__lista-navegacao">
                 <li class="cabecalho__link"><a href="#">Dashboard</a></li>
-                <li class="cabecalho__link"><a href="#">Produtos</a></li>
-                <li class="cabecalho__link"><a href="lista_cliente.html">Clientes </a></li>
+                <li class="cabecalho__link"><a href="#">Products</a></li>
+                <li class="cabecalho__link"><a href="list_client.html">Clients </a></li>
                 <li class="cabecalho__link"><a href="#">Pets</a></li>
             </ul>
         </nav>
     </header>
     <main class="container flex flex--centro flex--coluna">
         <section class="cartao cadastro">
-            <h1 class="cartao__titulo">Edição</h1>
-            <form action="#" class="flex flex--coluna" data-form>
+            <h1 class="cartao__titulo">New Client</h1>
+            <form class="flex flex--coluna" data-form>
                 <div class="input-container">
-                    <input name="nome" id="nome" class="input" type="text" placeholder="Nome" required data-nome>
-                    <label class="input-label" for="nome">Nome</label>
-                    <span class="input-mensagem-erro">Esse campo não pode ficar vazio</span>
+                    <input name="nome" id="nome" class="input" type="text" placeholder="Nome" required data-name>
+                    <label class="input-label" for="nome">Name</label>
+                    <span class="input-mensagem-erro">This field cannot be empty</span>
                 </div>
                 <div class="input-container">
                     <input name="email" id="email" class="input" type="text" placeholder="email" required data-email>
-                    <label class="input-label" for="email">email</label>
-                    <span class="input-mensagem-erro">Esse campo não pode ficar vazio</span>
+                    <label class="input-label" for="email" >Email</label>
+                    <span class="input-mensagem-erro">This field cannot be empty</span>
                 </div>
                 <button type="submit"class="botao">
-                    Editar cliente
-                </button>
+                Register
+            </button>
             </form>
         </section>
     </main>
-    
 </body>
+<script type="module" src="../controller/newClient-controller.js"></script>
+
 </html>
