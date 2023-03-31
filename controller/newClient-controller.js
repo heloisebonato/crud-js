@@ -2,13 +2,17 @@ import { clientService } from "../service/client-service.js";
 
 const form = document.querySelector('[data-form]')
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
     event.preventDefault()
-    const name = event.target.querySelector('[data-name]').value
-    const email = event.target.querySelector('[data-email]').value
+    try{
+        const name = event.target.querySelector('[data-name]').value
+        const email = event.target.querySelector('[data-email]').value
 
-    clientService.newClient( name, email )
-    .then(() => {
+        await clientService.newClient( name, email )
         window.location.href = '../pages/register_completed.html'
-    })
+    }
+    catch(error){
+        console.log(error)
+        window.location.href = '../pages/error.html'
+    }
 })

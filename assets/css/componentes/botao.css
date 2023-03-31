@@ -1,4 +1,4 @@
-.botao {
+.button {
     display: block;
     background-color: var(--cor-primaria);
     border-radius: 7px;
@@ -13,19 +13,19 @@
     text-align: center;
 }
 
-.botao-simples {
+.simple-button {
     border: none;
     background-color: unset;
 }
 
-.botao-simples--adicionar {
+.button-add {
     color: var(--cor-primaria);
 }
 
-.botao-simples--excluir {
+.button-delete {
     color: var(--cor-aviso);
 }
 
-.botao-simples--editar {
+.button-edit {
     color: var(--cor-sucesso);
 }

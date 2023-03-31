@@ -1,7 +1,10 @@
 const listClients = () => {
     return fetch('http://localhost:3000/profile')
     .then( response => {
-        return response.json()
+        if(response.ok){
+            return response.json()
+        }
+        throw new Error('Unable to list clients')
     })
 }
 
@@ -17,17 +20,56 @@ const newClient = (name, email) => {
         })
     })
     .then( response => {
-        return response.body
+        if(response.ok){
+            return response.json()
+        }
+        throw new Error('Unable to add new client')
     })
 }
 
-const removeClient = () => {
-    return fetch(`http://localhost:3000/profile`, {
+const removeClient = (id) => {
+    return fetch(`http://localhost:3000/profile/${id}`, {
+        method: 'DELETE'
+    }).then( response => {
+        if(!response.ok){
+            throw new Error('Unable to delete client')
+        }
+    })
+}
 
+const infoClient = (id) => {
+    return fetch(`http://localhost:3000/profile/${id}`)
+    .then( response => {
+        if(response.ok){
+            return response.json()
+        }
+        throw new Error('Unable to detail client')
+    })
+}
+
+const updateClient = (id, name, email) => {
+    return fetch(`http://localhost:3000/profile/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type' : 'application/json'
+        },
+        body: JSON.stringify({
+            name: name,
+            email: email
+        })
+    })
+    .then( response => {
+        if(response.ok){
+            return response.json()
+        }
+        throw new Error('Unable to update client')
     })
 }
 
 export const clientService = {
     listClients,
-    newClient
+    newClient,
+    removeClient,
+    infoClient,
+    updateClient
 }
